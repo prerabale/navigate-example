@@ -1,25 +1,30 @@
-import React, { MouseEventHandler, useCallback, useReducer } from 'react'
+import React, { useCallback } from 'react'
 import { navigateTo } from 'src/lib/router'
 
-const reducer = (state, action) => {
-
-}
-
 const Index: React.FC = () => {
-  const dispatch = useReducer(reducer, undefined)
-  const handleClick = useCallback((event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
-    const { page } = event.currentTarget.dataset
+  const handlePropsClick = useCallback(() => {
     navigateTo({
-      url: page
+      url: "/props",
+      query: {
+        id: 1,
+        show: false
+      }
+    })
+  }, [])
+
+  const handleRouterClick = useCallback(() => {
+    navigateTo({
+      url: "/router",
+      query: {
+        id: 1
+      }
     })
   }, [])
 
   return <div>
     <ul>
-      <li data-page={'props'} onClick={handleClick}>props</li>
-      <li></li>
-      <li></li>
-      <li></li>
+      <li onClick={handlePropsClick}>props</li>
+      <li onClick={handleRouterClick}>router</li>
     </ul>
   </div>
 }
