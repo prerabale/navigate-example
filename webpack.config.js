@@ -30,20 +30,19 @@ module.exports = {
       {
         test: /\.tsx?$/,
         use: [
-          {
-            loader: 'cache-loader'
-          },
-          {
-            loader: 'thread-loader',
-            options: {
-              workers: cpus - 1
-            }
-          },
-          'babel-loader',
+          // {
+          //   loader: 'cache-loader'
+          // },
+          // {
+          //   loader: 'thread-loader',
+          //   options: {
+          //     workers: cpus - 1
+          //   }
+          // },
+          // 'babel-loader',
           {
             loader: "ts-loader",
             options: {
-              transpileOnly: true,
               happyPackMode: true
             }
           }
